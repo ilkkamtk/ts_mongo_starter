@@ -17,19 +17,4 @@ const testServer = async (app: Express) => {
   });
 };
 
-// test that invalid routes return 404
-const testInvalidRoute = async (app: Express, endpoint: string) => {
-  return new Promise((resolve, reject) => {
-    request(app)
-      .get(endpoint)
-      .expect(404)
-      .end((err, res) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(res);
-      });
-  });
-};
-
-export {testServer, testInvalidRoute};
+export {testServer};
